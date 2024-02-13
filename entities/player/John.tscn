@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://dqut3jqv5pwgt"]
+
+[ext_resource type="Script" path="res://entities/player/John.gd" id="1_3ss1g"]
+[ext_resource type="Texture2D" uid="uid://dkhxrbhpbhgoi" path="res://icon.svg" id="1_fd8iq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a5hol"]
+size = Vector2(128, 42)
+
+[node name="John" type="CharacterBody2D"]
+script = ExtResource("1_3ss1g")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_fd8iq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 43)
+shape = SubResource("RectangleShape2D_a5hol")
