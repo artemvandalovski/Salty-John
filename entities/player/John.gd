@@ -5,6 +5,8 @@ const SPEED = 100.0
 
 var health = 5
 
+@onready var sprite = $Sprite2D
+
 
 func _ready():
 	Global.player = self
@@ -16,6 +18,7 @@ func _process(delta):
 
 func _physics_process(delta):
 	handle_movement()
+	flip_sprite()
 
 
 func handle_movement():
@@ -24,3 +27,6 @@ func handle_movement():
 	velocity += acceleration
 	velocity *= FRICTION
 	move_and_slide()
+	
+func flip_sprite():
+	sprite.flip_h = get_local_mouse_position().x < 0.0
