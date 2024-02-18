@@ -2,11 +2,21 @@ extends Node2D
 
 const FISTS: PackedScene = preload("res://entities/player/Fists.tscn")
 
-# Called when the node enters the scene tree for the first time.
+@export var default_weapon: PackedScene = FISTS
+
+@onready var hand = $Hand
+
+var current_weapon: Node2D = null
+
+
 func _ready():
-	pass # Replace with function body.
+	set_weapon(default_weapon.instantiate())
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	look_at(get_global_mouse_position())
+
+
+func set_weapon(weapon: Node2D):
+	hand.add_child(weapon)
+	current_weapon = weapon

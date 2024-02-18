@@ -22,5 +22,5 @@ shape = SubResource("RectangleShape2D_a5hol")
 position = Vector2(0, 8)
 script = ExtResource("3_mpuh5")
 
-[node name="Hands" type="Marker2D" parent="WeaponContainer"]
+[node name="Hand" type="Marker2D" parent="WeaponContainer"]
 position = Vector2(32, 0)
