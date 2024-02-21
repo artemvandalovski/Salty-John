@@ -5,12 +5,11 @@
 
 [node name="Fists" type="Node2D"]
 script = ExtResource("1_hpey5")
-full_dmg = 3
 
-[node name="LFist" type="Sprite2D" parent="."]
+[node name="LeftFist" type="Sprite2D" parent="."]
 position = Vector2(0, -16)
 texture = ExtResource("2_e7shq")
 
-[node name="RFist" type="Sprite2D" parent="."]
+[node name="RightFist" type="Sprite2D" parent="."]
 position = Vector2(0, 16)
 texture = ExtResource("2_e7shq")
