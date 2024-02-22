@@ -1,6 +1,6 @@
 extends Node2D
 
-const FISTS: PackedScene = preload("res://player/Fists.tscn")
+const FISTS: PackedScene = preload("res://player/fists/Fists.tscn")
 
 @export var default_weapon: PackedScene = FISTS
 
