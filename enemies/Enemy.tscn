@@ -1,5 +1,9 @@
-[gd_scene format=3 uid="uid://beoii3j7408qg"]
+[gd_scene load_steps=2 format=3 uid="uid://beoii3j7408qg"]
+
+[ext_resource type="PackedScene" uid="uid://b2lmymc4t3o2n" path="res://common/hurtbox/Hurtbox.tscn" id="1_38ih4"]
 
 [node name="Enemy" type="CharacterBody2D"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="Hurtbox" parent="." instance=ExtResource("1_38ih4")]

@@ -1,7 +1,6 @@
 class_name Hurtbox
 extends Area2D
 
-
 signal damaged(dmg)
 signal knocked_back(kb)
 
@@ -11,9 +10,11 @@ signal knocked_back(kb)
 
 
 func _ready():
+	config()
+
+func config():
 	collision_layer = 16
 	collision_mask = 0
-
 
 func damage(dmg: int):
 	if !is_enabled or !invincibility_timer.is_stopped(): return

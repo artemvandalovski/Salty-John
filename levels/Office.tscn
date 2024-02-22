@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://c6icymb4ir46n"]
+[gd_scene load_steps=3 format=3 uid="uid://c6icymb4ir46n"]
 
 [ext_resource type="PackedScene" uid="uid://dqut3jqv5pwgt" path="res://player/John.tscn" id="1_dk4bx"]
+[ext_resource type="PackedScene" uid="uid://bv44wpix1v7ge" path="res://enemies/Dummy.tscn" id="2_yd8qp"]
 
 [node name="Level" type="Node2D"]
 
@@ -13,3 +14,6 @@ format = 2
 
 [node name="John" parent="." instance=ExtResource("1_dk4bx")]
 position = Vector2(-4, 5)
+
+[node name="Dummy" parent="." instance=ExtResource("2_yd8qp")]
+position = Vector2(304, -16)
