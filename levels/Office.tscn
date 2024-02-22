@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://c6icymb4ir46n"]
 
-[ext_resource type="PackedScene" uid="uid://dqut3jqv5pwgt" path="res://entities/player/John.tscn" id="1_uxvs3"]
+[ext_resource type="PackedScene" uid="uid://dqut3jqv5pwgt" path="res://player/John.tscn" id="1_dk4bx"]
 
 [node name="Level" type="Node2D"]
 
@@ -11,5 +11,5 @@ format = 2
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="John" parent="." instance=ExtResource("1_uxvs3")]
+[node name="John" parent="." instance=ExtResource("1_dk4bx")]
 position = Vector2(-4, 5)

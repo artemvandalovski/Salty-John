@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://qm2m6xj8mj78"
-path="res://.godot/imported/john.png-1532c7e1c30459f07fbb67f8b30eec7b.ctex"
+path="res://.godot/imported/john.png-1b3d464b769392e8a10e45aa7da52576.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://entities/player/john.png"
-dest_files=["res://.godot/imported/john.png-1532c7e1c30459f07fbb67f8b30eec7b.ctex"]
+source_file="res://player/sprites/john.png"
+dest_files=["res://.godot/imported/john.png-1b3d464b769392e8a10e45aa7da52576.ctex"]
 
 [params]
 

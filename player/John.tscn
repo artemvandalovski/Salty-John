@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://dqut3jqv5pwgt"]
 
-[ext_resource type="Script" path="res://entities/player/John.gd" id="1_3ss1g"]
-[ext_resource type="Texture2D" uid="uid://qm2m6xj8mj78" path="res://entities/player/john.png" id="2_0gq6d"]
-[ext_resource type="Script" path="res://entities/player/WeaponContainer.gd" id="3_mpuh5"]
+[ext_resource type="Script" path="res://player/John.gd" id="1_3ss1g"]
+[ext_resource type="Texture2D" uid="uid://qm2m6xj8mj78" path="res://player/sprites/john.png" id="2_0gq6d"]
+[ext_resource type="Script" path="res://player/WeaponContainer.gd" id="3_mpuh5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a5hol"]
 size = Vector2(48, 24)

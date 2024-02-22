@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://7fmia0sa61r4"]
 
-[ext_resource type="Script" path="res://entities/weapons/Weapon.gd" id="1_y8q0l"]
+[ext_resource type="Script" path="res://common/weapons/Weapon.gd" id="1_y8q0l"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kn7qb"]
 
