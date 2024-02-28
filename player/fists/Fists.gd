@@ -43,7 +43,12 @@ func charge(charge: float, delta):
 	return max(charge - CHARGE_RATE * delta, MAX_CHARGE)
 
 func punch(fist: Area2D, charge: float):
-	fist.enabled = true
+	if collision == null: return
+	collision.disabled = false
+	
 	var punch_tween = create_tween().set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_OUT)
 	punch_tween.tween_property(fist, 'position:x', charge + PUNCH_DEPTH, 0.1)
 	punch_tween.tween_property(fist, 'position:x', 0, COOLDOWN)
+	
+	await punch_tween.finished
+	collision.disabled = true

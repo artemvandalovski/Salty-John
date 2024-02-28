@@ -12,7 +12,7 @@ func config():
 	collision_mask = 4
 
 func _on_area_entered(hitbox: Hitbox):
-	if hitbox == null or !hitbox.enabled:
+	if hitbox == null:
 		return
 	
 	if owner.has_method("take_damage"):

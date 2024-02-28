@@ -13,7 +13,7 @@ format = 2
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="John" parent="." instance=ExtResource("1_dk4bx")]
-position = Vector2(-4, 5)
+position = Vector2(-112, -8)
 
 [node name="Dummy" parent="." instance=ExtResource("2_yd8qp")]
-position = Vector2(264, 16)
+position = Vector2(240, 0)

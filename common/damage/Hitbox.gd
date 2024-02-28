@@ -5,7 +5,6 @@ Area that can deal damage to Hurtboxes
 """
 
 @export var damage := 1
-@export var enabled = true
 
 
 func _ready():
