@@ -12,10 +12,6 @@ func _ready():
 	Global.player = self
 
 
-func _process(delta):
-	pass
-
-
 func _physics_process(delta):
 	handle_movement()
 	flip_sprite()

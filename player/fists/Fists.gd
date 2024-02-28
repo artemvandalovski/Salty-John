@@ -1,4 +1,4 @@
-extends Node2D
+extends Weapon
 
 const PUNCH_DEPTH = 16.0 # how far the fists will go for a punch
 const CHARGE_DEPTH = 8.0 # how far the fists will go back while charging
@@ -43,6 +43,7 @@ func charge(charge: float, delta):
 	return max(charge - CHARGE_RATE * delta, MAX_CHARGE)
 
 func punch(fist: Area2D, charge: float):
+	var collision: CollisionShape2D = fist.find_child("CollisionShape2D")
 	if collision == null: return
 	collision.disabled = false
 	
@@ -52,3 +53,9 @@ func punch(fist: Area2D, charge: float):
 	
 	await punch_tween.finished
 	collision.disabled = true
+
+func get_knockback() -> Vector2:
+	var dir = Vector2(cos(global_rotation), sin(global_rotation))
+	return holder.velocity\
+		+ (dir * max(400*l_charge,200))\
+		+ (dir * max(400*r_charge,200))

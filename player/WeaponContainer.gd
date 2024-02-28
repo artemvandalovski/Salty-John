@@ -17,6 +17,7 @@ func _process(delta):
 	look_at(get_global_mouse_position())
 
 
-func set_weapon(weapon: Node2D):
+func set_weapon(weapon: Weapon):
 	hand.add_child(weapon)
+	weapon.holder = owner
 	current_weapon = weapon

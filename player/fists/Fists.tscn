@@ -1,34 +1,35 @@
-[gd_scene load_steps=6 format=3 uid="uid://btxwmu2dhnxsd"]
+[gd_scene load_steps=7 format=3 uid="uid://b1eycdjhng3h"]
 
 [ext_resource type="Script" path="res://player/fists/Fists.gd" id="1_iai7p"]
+[ext_resource type="PackedScene" uid="uid://7fmia0sa61r4" path="res://common/weapons/Weapon.tscn" id="1_kcfb7"]
 [ext_resource type="Texture2D" uid="uid://caw1v7w1swthd" path="res://player/fists/fist.png" id="2_v5aav"]
 [ext_resource type="Script" path="res://common/damage/Hitbox.gd" id="3_h3f6g"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_m70bk"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_krdlf"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_1bpkb"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_nkbl8"]
 
-[node name="Fists" type="Node2D"]
+[node name="Fists" instance=ExtResource("1_kcfb7")]
 script = ExtResource("1_iai7p")
 
-[node name="LeftFist" type="Area2D" parent="."]
+[node name="LeftFist" type="Area2D" parent="." index="1"]
 position = Vector2(0, -16)
 script = ExtResource("3_h3f6g")
 
-[node name="Sprite" type="Sprite2D" parent="LeftFist"]
+[node name="Sprite" type="Sprite2D" parent="LeftFist" index="0"]
 texture = ExtResource("2_v5aav")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftFist"]
-shape = SubResource("CircleShape2D_m70bk")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftFist" index="1"]
+shape = SubResource("CircleShape2D_krdlf")
 disabled = true
 
-[node name="RightFist" type="Area2D" parent="."]
+[node name="RightFist" type="Area2D" parent="." index="2"]
 position = Vector2(0, 16)
 script = ExtResource("3_h3f6g")
 
-[node name="Sprite" type="Sprite2D" parent="RightFist"]
+[node name="Sprite" type="Sprite2D" parent="RightFist" index="0"]
 texture = ExtResource("2_v5aav")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RightFist"]
-shape = SubResource("CircleShape2D_1bpkb")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightFist" index="1"]
+shape = SubResource("CircleShape2D_nkbl8")
 disabled = true
