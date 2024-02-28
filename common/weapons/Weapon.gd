@@ -1,6 +1,6 @@
 class_name Weapon
 extends Node2D
 
-@export var uses_left = 1
+@export var durability = 1
 
 @onready var pickup_area = $PickupArea2D

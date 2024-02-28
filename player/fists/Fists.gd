@@ -12,6 +12,8 @@ const R_CLICK = "right_click"
 
 @onready var l_fist = $LeftFist
 @onready var r_fist = $RightFist
+@onready var l_hitbox = $LeftFist/LeftHB
+@onready var r_hitbox = $RightFist/RightHB
 
 var l_charge = 0.0
 var r_charge = 0.0
@@ -43,6 +45,8 @@ func charge(charge: float, delta):
 	return max(charge - CHARGE_RATE * delta, MAX_CHARGE)
 
 func punch(fist: Node2D, charge: float):
+	l_hitbox.enabled = true
 	var punch_tween = create_tween().set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_OUT)
 	punch_tween.tween_property(fist, 'position:x', charge + PUNCH_DEPTH, 0.1)
 	punch_tween.tween_property(fist, 'position:x', 0, COOLDOWN)
+	l_hitbox.enabled = false

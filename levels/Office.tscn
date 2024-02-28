@@ -17,3 +17,5 @@ position = Vector2(-4, 5)
 
 [node name="Dummy" parent="." instance=ExtResource("2_yd8qp")]
 position = Vector2(304, -16)
+collision_layer = 1
+script = null
