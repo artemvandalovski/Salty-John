@@ -11,22 +11,24 @@
 [node name="Fists" type="Node2D"]
 script = ExtResource("1_iai7p")
 
-[node name="LeftFist" type="Sprite2D" parent="."]
+[node name="LeftFist" type="Area2D" parent="."]
 position = Vector2(0, -16)
+script = ExtResource("3_h3f6g")
+enabled = false
+
+[node name="Sprite" type="Sprite2D" parent="LeftFist"]
 texture = ExtResource("2_v5aav")
 
-[node name="LeftHB" type="Area2D" parent="LeftFist"]
-script = ExtResource("3_h3f6g")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftFist/LeftHB"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftFist"]
 shape = SubResource("CircleShape2D_m70bk")
 
-[node name="RightFist" type="Sprite2D" parent="."]
+[node name="RightFist" type="Area2D" parent="."]
 position = Vector2(0, 16)
+script = ExtResource("3_h3f6g")
+enabled = false
+
+[node name="Sprite" type="Sprite2D" parent="RightFist"]
 texture = ExtResource("2_v5aav")
 
-[node name="RightHB" type="Area2D" parent="RightFist"]
-script = ExtResource("3_h3f6g")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RightFist/RightHB"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightFist"]
 shape = SubResource("CircleShape2D_1bpkb")

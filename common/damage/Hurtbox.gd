@@ -11,7 +11,7 @@ func config():
 	collision_layer = 5
 	collision_mask = 4
 
-func _on_area_entered(hitbox: Hitbox) -> void:
+func _on_area_entered(hitbox: Hitbox):
 	if hitbox == null or !hitbox.enabled:
 		return
 	
