@@ -21,7 +21,6 @@ func _process(delta):
 	handle_charge(delta)
 	handle_punch(delta)
 
-
 func handle_charge(delta):
 	if Input.is_action_pressed(input):
 		charge = max(charge - CHARGE_RATE * delta, MAX_CHARGE)
@@ -32,17 +31,19 @@ func handle_punch(delta):
 		punch()
 
 func punch():
-	hitbox.monitorable = true
+	hitbox.collision.disabled = false
 	var punch_tween = create_tween().set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_OUT)
 	punch_tween.tween_property(self, 'position:x', charge + PUNCH_DEPTH, 0.1)
 	punch_tween.tween_property(self, 'position:x', 0, COOLDOWN)
 	await punch_tween.finished
-	hitbox.monitorable = false
+	hitbox.collision.disabled = true
 	charge = 0.0
 
 func get_knockback() -> Vector2:
-	var power = knockback_component.power
-	var max_knockback = knockback_component.max_knockback
-	var dir = Vector2(cos(global_rotation), sin(global_rotation))
-	var knockback = owner.velocity + (dir * max(400*charge,200))
+	var power = charge * -1
+	var strength = knockback_component.strength
+	var min_knockback = knockback_component.min_knockback
+	var velocity = owner.holder.velocity
+	var direction = Vector2(cos(global_rotation), sin(global_rotation))
+	var knockback = velocity + (direction * max(strength * power, min_knockback))
 	return knockback

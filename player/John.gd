@@ -23,6 +23,6 @@ func handle_movement():
 	velocity += acceleration
 	velocity *= FRICTION
 	move_and_slide()
-	
+
 func flip_sprite():
 	sprite.flip_h = get_local_mouse_position().x < 0.0

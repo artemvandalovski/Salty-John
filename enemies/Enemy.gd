@@ -1,7 +1,7 @@
 class_name Enemy
 extends CharacterBody2D
 
-const FRICTION = 0.8
+const FRICTION = 0.85
 
 @export var health := 3
 @export var mass := 1
