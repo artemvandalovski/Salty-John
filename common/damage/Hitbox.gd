@@ -5,7 +5,8 @@ Area that can deal damage to Hurtboxes
 """
 
 @onready var collision = $CollisionShape2D
-var damage = 0
+
+@export var damage = 1
 
 
 func _ready():
@@ -14,5 +15,5 @@ func _ready():
 
 func config():
 	collision.disabled = true
-	collision_layer = 4
-	collision_mask = 5
+	collision_layer = 8
+	collision_mask = 16

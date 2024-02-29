@@ -8,8 +8,8 @@ func _ready():
 
 
 func config():
-	collision_layer = 5
-	collision_mask = 4
+	collision_layer = 16
+	collision_mask = 8
 
 func _on_area_entered(hitbox: Hitbox):
 	if hitbox == null:

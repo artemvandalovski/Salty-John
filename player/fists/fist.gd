@@ -14,12 +14,10 @@ const COOLDOWN = 0.07
 var charge = 0.0
 
 
-func _ready():
-	hitbox.damage = damage
-
 func _process(delta):
 	handle_charge(delta)
 	handle_punch(delta)
+
 
 func handle_charge(delta):
 	if Input.is_action_pressed(input):
