@@ -5,13 +5,13 @@ const CHARGE_DEPTH = 8.0 # how far the fists will go back while charging
 const COOLDOWN = 0.07
 const CHARGE_RATE = 2.0
 const MAX_CHARGE = -1
-const MIN_KNOCKBACK = 200.0
 
 const L_CLICK = "left_click"
 const R_CLICK = "right_click"
 
 @onready var l_fist = $LeftFist
 @onready var r_fist = $RightFist
+@onready var knockback_component = $Knockback
 
 var l_charge = 0.0
 var r_charge = 0.0
@@ -55,7 +55,10 @@ func punch(fist: Area2D, charge: float):
 	collision.disabled = true
 
 func get_knockback() -> Vector2:
+	var power = knockback_component.power
+	var max_knockback = knockback_component.max_knockback
 	var dir = Vector2(cos(global_rotation), sin(global_rotation))
-	return holder.velocity\
+	var knockback = holder.velocity\
 		+ (dir * max(400*l_charge,200))\
 		+ (dir * max(400*r_charge,200))
+	return knockback

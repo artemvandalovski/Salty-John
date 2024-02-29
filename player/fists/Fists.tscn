@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://b1eycdjhng3h"]
+[gd_scene load_steps=8 format=3 uid="uid://b1eycdjhng3h"]
 
 [ext_resource type="Script" path="res://player/fists/Fists.gd" id="1_iai7p"]
 [ext_resource type="PackedScene" uid="uid://7fmia0sa61r4" path="res://common/weapons/Weapon.tscn" id="1_kcfb7"]
 [ext_resource type="Texture2D" uid="uid://caw1v7w1swthd" path="res://player/fists/fist.png" id="2_v5aav"]
 [ext_resource type="Script" path="res://common/damage/Hitbox.gd" id="3_h3f6g"]
+[ext_resource type="Script" path="res://common/components/KnockbackComponent.gd" id="5_u5pvn"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_krdlf"]
 
@@ -11,6 +12,9 @@
 
 [node name="Fists" instance=ExtResource("1_kcfb7")]
 script = ExtResource("1_iai7p")
+
+[node name="PickupArea" parent="." index="0"]
+collision_layer = 0
 
 [node name="LeftFist" type="Area2D" parent="." index="1"]
 position = Vector2(0, -16)
@@ -33,3 +37,6 @@ texture = ExtResource("2_v5aav")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RightFist" index="1"]
 shape = SubResource("CircleShape2D_nkbl8")
 disabled = true
+
+[node name="Knockback" type="Node2D" parent="." index="3"]
+script = ExtResource("5_u5pvn")
