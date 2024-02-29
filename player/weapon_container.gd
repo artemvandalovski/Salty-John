@@ -6,7 +6,7 @@ const FISTS: PackedScene = preload("res://player/fists/fists.tscn")
 
 @onready var hand = $Hand
 
-var current_item: Node2D = null
+var current_item: Item = null
 
 
 func _ready():
@@ -17,7 +17,7 @@ func _process(delta):
 	look_at(get_global_mouse_position())
 
 
-func set_item(item: Node2D):
+func set_item(item: Item):
 	hand.add_child(item)
 	item.holder = owner
 	current_item = item

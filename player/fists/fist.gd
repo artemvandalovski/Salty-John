@@ -6,21 +6,16 @@ const CHARGE_RATE = 2
 const MAX_CHARGE = -1
 const COOLDOWN = 0.07
 
-enum SIDES {left, right}
-
-@export var side = "left"
+@export_enum("left_click", "right_click") var input: String
 
 @onready var hitbox = $Hitbox
 @onready var knockback_component = $Knockback
 
-
 var charge = 0.0
-var input = side + "_click"
+
 
 func _ready():
-	print(input)
-	if side not in SIDES:
-		_exit_tree()
+	hitbox.damage = damage
 
 func _process(delta):
 	handle_charge(delta)
@@ -49,5 +44,5 @@ func get_knockback() -> Vector2:
 	var power = knockback_component.power
 	var max_knockback = knockback_component.max_knockback
 	var dir = Vector2(cos(global_rotation), sin(global_rotation))
-	var knockback = holder.velocity + (dir * max(400*charge,200))
+	var knockback = owner.velocity + (dir * max(400*charge,200))
 	return knockback

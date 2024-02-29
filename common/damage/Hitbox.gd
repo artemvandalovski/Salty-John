@@ -4,7 +4,7 @@ extends Area2D
 Area that can deal damage to Hurtboxes
 """
 
-@export var damage := 1
+var damage = 0
 
 
 func _ready():
