@@ -1,23 +1,23 @@
 extends Node2D
 
-const FISTS: PackedScene = preload("res://player/fists/Fists.tscn")
+const FISTS: PackedScene = preload("res://player/fists/fists.tscn")
 
-@export var default_weapon: PackedScene = FISTS
+@export var default_item: PackedScene = FISTS
 
 @onready var hand = $Hand
 
-var current_weapon: Node2D = null
+var current_item: Node2D = null
 
 
 func _ready():
-	set_weapon(default_weapon.instantiate())
+	set_item(default_item.instantiate())
 
 
 func _process(delta):
 	look_at(get_global_mouse_position())
 
 
-func set_weapon(weapon: Weapon):
-	hand.add_child(weapon)
-	weapon.holder = owner
-	current_weapon = weapon
+func set_item(item: Node2D):
+	hand.add_child(item)
+	item.holder = owner
+	current_item = item

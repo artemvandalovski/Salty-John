@@ -1,3 +1,33 @@
-[gd_scene format=3 uid="uid://cyods86bccwvv"]
+[gd_scene load_steps=8 format=3 uid="uid://b1eycdjhng3h"]
 
-[node name="Fist" type="Node2D"]
+[ext_resource type="PackedScene" uid="uid://7fmia0sa61r4" path="res://common/weapons/weapon.tscn" id="1_o7vsn"]
+[ext_resource type="Script" path="res://common/damage/hitbox.gd" id="1_ovjkt"]
+[ext_resource type="Script" path="res://player/fists/fist.gd" id="1_rbgta"]
+[ext_resource type="Texture2D" uid="uid://caw1v7w1swthd" path="res://player/fists/fist.png" id="2_esgg0"]
+[ext_resource type="Script" path="res://common/components/knockback.gd" id="4_3cbd5"]
+[ext_resource type="Script" path="res://common/components/dragging.gd" id="5_f6pl2"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1p38y"]
+
+[node name="Fist" instance=ExtResource("1_o7vsn")]
+script = ExtResource("1_rbgta")
+side = ""
+
+[node name="Sprite2D" type="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_esgg0")
+
+[node name="Hitbox" type="Area2D" parent="." index="1"]
+script = ExtResource("1_ovjkt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" index="0"]
+shape = SubResource("CircleShape2D_1p38y")
+
+[node name="PickupArea" parent="." index="2"]
+collision_layer = 0
+
+[node name="Knockback" type="Node2D" parent="." index="3"]
+script = ExtResource("4_3cbd5")
+
+[node name="Dragging" type="RayCast2D" parent="." index="4"]
+target_position = Vector2(24, 0)
+script = ExtResource("5_f6pl2")

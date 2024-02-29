@@ -14,3 +14,4 @@ func _ready():
 func config():
 	collision_layer = 4
 	collision_mask = 5
+	monitorable = false
