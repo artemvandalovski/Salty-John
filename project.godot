@@ -11,13 +11,13 @@ config_version=5
 [application]
 
 config/name="Salty John"
-run/main_scene="res://levels/Office.tscn"
+run/main_scene="res://levels/office.tscn"
 config/features=PackedStringArray("4.2", "Mobile")
 config/icon="res://icon.svg"
 
 [autoload]
 
-Global="*res://autoloads/Global.gd"
+Global="*res://autoloads/global.gd"
 
 [input]
 

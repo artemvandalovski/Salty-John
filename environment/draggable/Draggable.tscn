@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cpeu61u3dchfe"]
 
-[ext_resource type="Script" path="res://environment/draggable/Draggable.gd" id="1_m6ews"]
+[ext_resource type="Script" path="res://environment/draggable/draggable.gd" id="1_m6ews"]
 
 [node name="Draggable" type="RigidBody2D" groups=["Furniture"]]
 script = ExtResource("1_m6ews")

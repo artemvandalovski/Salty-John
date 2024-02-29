@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://bv44wpix1v7ge"]
 
-[ext_resource type="PackedScene" uid="uid://beoii3j7408qg" path="res://enemies/Enemy.tscn" id="1_4le0s"]
+[ext_resource type="PackedScene" uid="uid://beoii3j7408qg" path="res://enemies/enemy.tscn" id="1_4le0s"]
 [ext_resource type="Texture2D" uid="uid://dkhxrbhpbhgoi" path="res://icon.svg" id="2_rs333"]
-[ext_resource type="Script" path="res://common/damage/Hurtbox.gd" id="3_7nug7"]
+[ext_resource type="Script" path="res://common/damage/hurtbox.gd" id="3_7nug7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mij5c"]
 size = Vector2(64, 64)
