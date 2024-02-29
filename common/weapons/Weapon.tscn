@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://common/weapons/Weapon.gd" id="1_y8q0l"]
 
-[node name="Weapon" type="Node2D"]
+[node name="Weapon" type="Node2D" groups=["Weapons"]]
 script = ExtResource("1_y8q0l")
 
 [node name="PickupArea" type="Area2D" parent="."]
