@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://rfoidhvmwr78"]
+
+[ext_resource type="PackedScene" uid="uid://cpeu61u3dchfe" path="res://environment/draggable/draggable.tscn" id="1_xuccq"]
+[ext_resource type="Texture2D" uid="uid://c4vya5yxl5mi" path="res://environment/draggable/chair/office_chair.png" id="2_3hobp"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_22np1"]
+radius = 40.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hjvix"]
+radius = 32.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t463u"]
+size = Vector2(48, 48)
+
+[node name="Chair" instance=ExtResource("1_xuccq")]
+linear_damp = 2.0
+angular_damp = 1.0
+spin_force = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GrabArea" index="0"]
+shape = SubResource("CircleShape2D_22np1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" index="0"]
+shape = SubResource("CircleShape2D_hjvix")
+
+[node name="Sprite2D" type="Sprite2D" parent="." index="2"]
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("2_3hobp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="3"]
+shape = SubResource("RectangleShape2D_t463u")

@@ -1,11 +1,9 @@
+class_name Draggable
 extends RigidBody2D
 
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
+@export var spin_force = 0
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+func take_knockback(kb: Vector2):
+	apply_torque_impulse(kb.length() * randi_range(-2, 2) * spin_force)
+	apply_impulse(kb / mass)
