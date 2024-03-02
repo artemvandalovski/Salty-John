@@ -1,6 +1,5 @@
 extends CharacterBody2D
 
-const PUSH_FORCE: float = 5.0 # force for pushing rigibodies
 const FRICTION = 0.8
 const SPEED = 100.0
 

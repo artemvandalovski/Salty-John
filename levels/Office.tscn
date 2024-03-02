@@ -26,3 +26,4 @@ position = Vector2(344, -128)
 position = Vector2(-136, 0)
 
 [node name="Chair" parent="Y-Sort" instance=ExtResource("3_0gulq")]
+gravity_scale = 0.0
