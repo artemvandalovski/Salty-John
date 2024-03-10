@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://dqut3jqv5pwgt"]
+
+[ext_resource type="Script" path="res://player/john.gd" id="1_3ss1g"]
+[ext_resource type="Texture2D" uid="uid://qm2m6xj8mj78" path="res://player/sprites/john.png" id="2_0gq6d"]
+[ext_resource type="Script" path="res://player/item_container.gd" id="3_mpuh5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xkjc4"]
+size = Vector2(25, 25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hh36l"]
+size = Vector2(25, 25)
+
+[node name="John" type="CharacterBody2D"]
+collision_layer = 2
+script = ExtResource("1_3ss1g")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -16)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("2_0gq6d")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 18)
+shape = SubResource("RectangleShape2D_xkjc4")
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+position = Vector2(0, 18)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+shape = SubResource("RectangleShape2D_hh36l")
+
+[node name="ItemContainer" type="Node2D" parent="."]
+script = ExtResource("3_mpuh5")
+
+[node name="Hand" type="Marker2D" parent="ItemContainer"]
+position = Vector2(32, 0)
