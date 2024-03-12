@@ -10,6 +10,7 @@ const COOLDOWN = 0.07
 
 @onready var hitbox = $Hitbox
 @onready var knockback_component = $Knockback
+@onready var dragging_raycast = $Dragging
 
 var charge = 0.0
 
@@ -21,6 +22,7 @@ func _process(delta):
 
 func handle_charge(delta):
 	if Input.is_action_pressed(input):
+		handle_dragging()
 		charge = max(charge - CHARGE_RATE * delta, MAX_CHARGE)
 		position.x = charge * CHARGE_DEPTH
 
@@ -45,3 +47,8 @@ func get_knockback() -> Vector2:
 	var direction = Vector2(cos(global_rotation), sin(global_rotation))
 	var knockback = velocity + (direction * max(strength * power, min_knockback))
 	return knockback
+
+func handle_dragging():
+	if !dragging_raycast.is_colliding(): return
+	var draggable_object: RigidBody2D = dragging_raycast.get_collider().owner
+	draggable_object.global_position = lerp(draggable_object.global_position, global_position, 0.05)

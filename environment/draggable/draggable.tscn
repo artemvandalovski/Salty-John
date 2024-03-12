@@ -8,17 +8,18 @@
 bounce = 0.2
 
 [node name="Draggable" type="RigidBody2D" groups=["Furniture"]]
-collision_layer = 32
-collision_mask = 39
+collision_layer = 0
+collision_mask = 7
 physics_material_override = SubResource("PhysicsMaterial_mdcjv")
 script = ExtResource("1_m6ews")
 
 [node name="GrabArea" type="Area2D" parent="."]
-collision_layer = 0
-collision_mask = 2
+collision_layer = 32
+collision_mask = 0
 
 [node name="Hitbox" type="Area2D" parent="."]
 script = ExtResource("3_0dtis")
+start_disabled = false
 
 [node name="Hurtbox" type="Area2D" parent="."]
 script = ExtResource("2_2647f")
