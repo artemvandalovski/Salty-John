@@ -10,9 +10,10 @@ func take_knockback(kb: Vector2):
 
 func get_knockback():
 	if !is_fast_enough():
-		return
-	return linear_velocity * 200
+		return Vector2.ZERO
+	var kb = linear_velocity
 	linear_velocity *= -physics_material_override.bounce
+	return kb
 
 func is_fast_enough() -> bool:
 	return linear_velocity.length_squared() > pow(velocity_treshhold, 2)

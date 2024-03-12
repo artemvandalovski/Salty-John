@@ -14,6 +14,6 @@ func _ready():
 
 
 func config():
-	collision.disabled = true
+	#collision.disabled = true
 	collision_layer = 8
 	collision_mask = 16

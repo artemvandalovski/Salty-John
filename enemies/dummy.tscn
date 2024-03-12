@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bv44wpix1v7ge"]
+[gd_scene load_steps=6 format=3 uid="uid://bv44wpix1v7ge"]
 
 [ext_resource type="PackedScene" uid="uid://beoii3j7408qg" path="res://enemies/enemy.tscn" id="1_4le0s"]
 [ext_resource type="Texture2D" uid="uid://dkhxrbhpbhgoi" path="res://icon.svg" id="2_rs333"]
@@ -8,9 +8,6 @@
 size = Vector2(64, 64)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_spy3j"]
-size = Vector2(80, 80)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_7l3xy"]
 size = Vector2(80, 80)
 
 [node name="Dummy" instance=ExtResource("1_4le0s")]
@@ -28,6 +25,3 @@ script = ExtResource("3_7nug7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" index="0"]
 shape = SubResource("RectangleShape2D_spy3j")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D" index="0"]
-shape = SubResource("RectangleShape2D_7l3xy")

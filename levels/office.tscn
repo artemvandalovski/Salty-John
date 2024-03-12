@@ -16,14 +16,10 @@ format = 2
 [node name="Y-Sort" type="Node2D" parent="."]
 y_sort_enabled = true
 
-[node name="Dummy2" parent="Y-Sort" instance=ExtResource("2_vxqqo")]
-position = Vector2(216, -120)
+[node name="John" parent="Y-Sort" instance=ExtResource("1_7dqi1")]
 
 [node name="Dummy" parent="Y-Sort" instance=ExtResource("2_vxqqo")]
-position = Vector2(344, -128)
-
-[node name="John" parent="Y-Sort" instance=ExtResource("1_7dqi1")]
-position = Vector2(-136, 0)
+position = Vector2(253, -148)
 
 [node name="Chair" parent="Y-Sort" instance=ExtResource("3_0gulq")]
-gravity_scale = 0.0
+position = Vector2(106, -71)

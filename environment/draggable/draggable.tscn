@@ -1,12 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://cpeu61u3dchfe"]
+[gd_scene load_steps=5 format=3 uid="uid://cpeu61u3dchfe"]
 
 [ext_resource type="Script" path="res://environment/draggable/draggable.gd" id="1_m6ews"]
 [ext_resource type="Script" path="res://common/damage/hurtbox.gd" id="2_2647f"]
 [ext_resource type="Script" path="res://common/damage/hitbox.gd" id="3_0dtis"]
 
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_mdcjv"]
+bounce = 0.2
+
 [node name="Draggable" type="RigidBody2D" groups=["Furniture"]]
 collision_layer = 32
 collision_mask = 39
+physics_material_override = SubResource("PhysicsMaterial_mdcjv")
 script = ExtResource("1_m6ews")
 
 [node name="GrabArea" type="Area2D" parent="."]

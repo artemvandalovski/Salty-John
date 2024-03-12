@@ -21,4 +21,5 @@ func _on_area_entered(hitbox: Hitbox):
 	if owner.has_method("take_knockback"):
 		if hitbox.owner.has_method("get_knockback"):
 			var kb = hitbox.owner.get_knockback()
+			print(kb)
 			owner.take_knockback(kb)
