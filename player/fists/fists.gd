@@ -6,6 +6,7 @@ signal drag_stopped(node: Draggable)
 @onready var drag_raycast = $DragRayCast as RayCast2D
 @onready var right_fist = $Right
 @onready var left_fist = $Left
+@onready var marker_2d = $Marker2D
 
 
 ## The current Draggable the player is dragging
@@ -22,7 +23,7 @@ func _physics_process(delta):
 		# Suggestion: Add a `DragCenter: Marker2D` in between both fists and move it to there instead
 		dragging_node.global_position = lerp(
 			dragging_node.global_position,
-			global_position, 0.1
+			marker_2d.global_position, 0.2
 		)
 		return
 	
