@@ -18,7 +18,7 @@ func handle_movement():
 func take_damage(dmg: int):
 	health -= dmg
 	if health <= 0:
-		pass
+		queue_free()
 
 func take_knockback(kb: Vector2):
 	velocity += kb / mass

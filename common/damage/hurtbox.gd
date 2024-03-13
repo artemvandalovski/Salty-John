@@ -1,24 +1,23 @@
 class_name Hurtbox
 extends Area2D
+## Areas that recieve damage from [Hitbox]es
 
 
 func _ready():
 	config()
-	connect("area_entered", _on_area_entered)
-
 
 func config():
-	collision_layer = 16
-	collision_mask = 8
+	collision_layer = 16 # hurtbox layer
+	collision_mask = 8 # hitbox layer
 
-func _on_area_entered(hitbox: Hitbox):
-	if hitbox == null:
+
+func apply_damage(dmg: int):
+	if !owner.has_method("take_damage"):
 		return
-	
-	if owner.has_method("take_damage"):
-		owner.take_damage(hitbox.damage)
-	
-	if owner.has_method("take_knockback"):
-		if hitbox.owner.has_method("get_knockback"):
-			var kb = hitbox.owner.get_knockback()
-			owner.take_knockback(kb)
+	owner.take_damage(dmg)
+
+
+func apply_knockback(knockback: Vector2):
+	if !owner.has_method("take_knockback"):
+		return
+	owner.take_knockback(knockback)
