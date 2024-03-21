@@ -6,12 +6,13 @@ class_name Hitbox extends Area2D
 ## Call [method deal_damage] to deal damage to all overlapping Hurtboxes[br]
 ## Set [member knockback_func][code]: func(Hurtbox) -> Vector2[/code] to handle knockback
 
-@export var damage = 1
-
 # [code]func(Hurtbox) -> Vector2[/code]
 # Warning: may be null
 # E.g.   func(_hurtbox: Hurtbox) -> Vector2:	return Vector2.ZERO
 var knockback_func: Callable
+
+# Can be null
+var damage_func: Callable
 
 
 func _ready():
@@ -30,7 +31,7 @@ func deal_damage():
 	for hurtbox in get_overlapping_areas():
 		assert(hurtbox is Hurtbox)
 		
-		hurtbox.apply_damage(damage)
+		hurtbox.apply_damage(damage_func.call(hurtbox))
 		
 		if do_apply_kb:
 			var kb: Vector2 = knockback_func.call(hurtbox)
@@ -48,4 +49,3 @@ func deal_knockback():
 		
 		var kb: Vector2 = knockback_func.call(hurtbox)
 		hurtbox.apply_knockback(kb)
-

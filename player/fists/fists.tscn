@@ -1,26 +1,20 @@
-[gd_scene load_steps=4 format=3 uid="uid://cu7v5vew4t18i"]
+[gd_scene load_steps=3 format=3 uid="uid://cu7v5vew4t18i"]
 
 [ext_resource type="PackedScene" uid="uid://7fmia0sa61r4" path="res://common/items/item.tscn" id="1_3y0xb"]
 [ext_resource type="PackedScene" uid="uid://b1eycdjhng3h" path="res://player/fists/fist.tscn" id="1_ux0o8"]
-[ext_resource type="Script" path="res://player/fists/fists.gd" id="2_cyakf"]
 
 [node name="Fists" instance=ExtResource("1_3y0xb")]
-script = ExtResource("2_cyakf")
 
 [node name="Left" parent="." index="1" instance=ExtResource("1_ux0o8")]
 position = Vector2(0, -16)
 input = "left_click"
 
+[node name="DragCenter" type="Marker2D" parent="Left" index="3"]
+position = Vector2(24, -12)
+
 [node name="Right" parent="." index="2" instance=ExtResource("1_ux0o8")]
 position = Vector2(0, 16)
 input = "right_click"
 
-[node name="DragRayCast" type="RayCast2D" parent="." index="3"]
-position = Vector2(-24, 0)
-target_position = Vector2(64, 0)
-collision_mask = 32
-collide_with_areas = true
-collide_with_bodies = false
-
-[node name="Marker2D" type="Marker2D" parent="." index="4"]
-position = Vector2(24, 0)
+[node name="DragCenter" type="Marker2D" parent="Right" index="3"]
+position = Vector2(24, 12)

@@ -11,6 +11,7 @@ size = Vector2(64, 64)
 size = Vector2(80, 80)
 
 [node name="Dummy" instance=ExtResource("1_4le0s")]
+health = 20
 
 [node name="Sprite2D" type="Sprite2D" parent="." index="0"]
 position = Vector2(1.90735e-06, 1.90735e-06)
@@ -25,3 +26,9 @@ script = ExtResource("3_7nug7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" index="0"]
 shape = SubResource("RectangleShape2D_spy3j")
+
+[node name="Label" parent="." index="3"]
+offset_left = -20.0
+offset_top = -68.0
+offset_right = 20.0
+offset_bottom = -45.0
