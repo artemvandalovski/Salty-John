@@ -1,10 +1,40 @@
-[gd_scene load_steps=2 format=3 uid="uid://beoii3j7408qg"]
+[gd_scene load_steps=3 format=3 uid="uid://beoii3j7408qg"]
 
 [ext_resource type="Script" path="res://enemies/enemy.gd" id="1_qbslc"]
+[ext_resource type="Script" path="res://enemies/context_steering.gd" id="2_258u8"]
 
 [node name="Enemy" type="CharacterBody2D" groups=["Enemies"]]
 collision_layer = 4
 script = ExtResource("1_qbslc")
+
+[node name="ContextSteering" type="Node2D" parent="."]
+script = ExtResource("2_258u8")
+
+[node name="Interest" type="Node2D" parent="ContextSteering"]
+
+[node name="BottomRayCast" type="RayCast2D" parent="ContextSteering/Interest"]
+target_position = Vector2(0, 75)
+
+[node name="BottomLeftRayCast" type="RayCast2D" parent="ContextSteering/Interest"]
+target_position = Vector2(-60, 60)
+
+[node name="BottomRightRayCast" type="RayCast2D" parent="ContextSteering/Interest"]
+target_position = Vector2(60, 60)
+
+[node name="LeftRayCast" type="RayCast2D" parent="ContextSteering/Interest"]
+target_position = Vector2(-75, 0)
+
+[node name="RightRayCast" type="RayCast2D" parent="ContextSteering/Interest"]
+target_position = Vector2(75, 0)
+
+[node name="TopRayCast" type="RayCast2D" parent="ContextSteering/Interest"]
+target_position = Vector2(0, -75)
+
+[node name="TopLeftRayCast" type="RayCast2D" parent="ContextSteering/Interest"]
+target_position = Vector2(-60, -60)
+
+[node name="TopRightRayCast" type="RayCast2D" parent="ContextSteering/Interest"]
+target_position = Vector2(60, -60)
 
 [node name="Label" type="Label" parent="."]
 offset_right = 40.0

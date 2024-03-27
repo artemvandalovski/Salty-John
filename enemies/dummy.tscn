@@ -27,7 +27,7 @@ script = ExtResource("3_7nug7")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" index="0"]
 shape = SubResource("RectangleShape2D_spy3j")
 
-[node name="Label" parent="." index="3"]
+[node name="Label" parent="." index="4"]
 offset_left = -20.0
 offset_top = -68.0
 offset_right = 20.0

@@ -63,7 +63,7 @@ y_sort_enabled = true
 [node name="John" parent="Y-Sort" instance=ExtResource("1_7dqi1")]
 
 [node name="Dummy" parent="Y-Sort" instance=ExtResource("2_vxqqo")]
-position = Vector2(254, -125)
+position = Vector2(308, -108)
 
 [node name="Chair" parent="Y-Sort" instance=ExtResource("3_0gulq")]
 position = Vector2(144, -56)
