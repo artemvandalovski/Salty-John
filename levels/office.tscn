@@ -1,16 +1,56 @@
-[gd_scene load_steps=6 format=3 uid="uid://c6icymb4ir46n"]
+[gd_scene load_steps=10 format=3 uid="uid://c6icymb4ir46n"]
 
+[ext_resource type="Texture2D" uid="uid://dqciapcjqxcer" path="res://tilemaps/office_floor.png" id="1_3w1yi"]
 [ext_resource type="PackedScene" uid="uid://dqut3jqv5pwgt" path="res://player/john.tscn" id="1_7dqi1"]
+[ext_resource type="Texture2D" uid="uid://cnppwvwyp5kdb" path="res://tilemaps/wall_tiles.png" id="2_oea3j"]
 [ext_resource type="PackedScene" uid="uid://bv44wpix1v7ge" path="res://enemies/dummy.tscn" id="2_vxqqo"]
 [ext_resource type="PackedScene" uid="uid://rfoidhvmwr78" path="res://environment/draggable/chair/chair.tscn" id="3_0gulq"]
 [ext_resource type="Texture2D" uid="uid://dkhxrbhpbhgoi" path="res://icon.svg" id="4_wyy82"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6lxjo"]
+resource_name = "Walls"
+texture = ExtResource("2_oea3j")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_e4lei"]
+tile_size = Vector2i(32, 32)
+sources/2 = SubResource("TileSetAtlasSource_6lxjo")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jn377"]
 size = Vector2(304, 63)
 
 [node name="Level" type="Node2D"]
 
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = -672.0
+offset_top = -384.0
+offset_right = 620.0
+offset_bottom = 352.0
+texture = ExtResource("1_3w1yi")
+stretch_mode = 1
+
 [node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_e4lei")
 format = 2
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -23,13 +63,13 @@ y_sort_enabled = true
 [node name="John" parent="Y-Sort" instance=ExtResource("1_7dqi1")]
 
 [node name="Dummy" parent="Y-Sort" instance=ExtResource("2_vxqqo")]
-position = Vector2(253, -148)
+position = Vector2(254, -125)
 
 [node name="Chair" parent="Y-Sort" instance=ExtResource("3_0gulq")]
-position = Vector2(106, -71)
+position = Vector2(144, -56)
 
 [node name="Wall" type="StaticBody2D" parent="Y-Sort"]
-position = Vector2(-234, -52)
+position = Vector2(-197, -107)
 rotation = -0.316844
 metadata/_edit_group_ = true
 

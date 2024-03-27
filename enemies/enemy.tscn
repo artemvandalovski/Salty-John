@@ -9,3 +9,7 @@ script = ExtResource("1_qbslc")
 [node name="Label" type="Label" parent="."]
 offset_right = 40.0
 offset_bottom = 23.0
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+navigation_layers = 2
+debug_enabled = true
