@@ -1,30 +1,41 @@
 extends Node2D
 
-# RESTART WITH USING RAYCAST NODES AND NAVIGATION NODES
+const NUM_RAYS = 8
+const RAY_LENGTH = 100
 
-#func solve(caller: Object, interest_method: String, binds: Array = []) -> Vector2:
-	#var result: Vector2 = Vector2.ZERO
-	#
-	#for i in range(num_rays):
-		#var ray: RayCast2D = get_child(i)
-		#var ray_dir = ray.cast_to.normalized()
-		#
-		## Calc interest
-		#var interest: float = caller.call(interest_method, ray_dir, binds)
-		#
-		## Calc danger
-		#var rdist: float = view_dist if !ray.is_colliding() else ray.get_collision_point().distance_to(global_position)
-		#if rdist == 0: return Vector2.ZERO #prevents some crashes
-		#var danger: float = view_dist/rdist * 0.1 * danger_weight
-		#
-		#if DRAW_DEBUG:
-			#imap[i] = interest
-			#dmap[i] = danger
-		#
-		#result += ray_dir * max(interest-danger, 0.0)
-	#
-	#if DRAW_DEBUG:
-		#finaldir = result.normalized()
-		#update()
-	#
-	#return result.normalized()
+var angle_step = TAU / NUM_RAYS
+
+@onready var player: Node2D = Global.player
+
+
+func _ready():
+	generate_raycasts()
+
+func _process(delta):
+	calc_interest()
+
+func _draw():
+	for i in range(NUM_RAYS):
+		var ray: RayCast2D = get_child(i)
+		var direction: Vector2 = ray.target_position
+		
+		var forward_direction = to_local(player.global_position)
+		var dot_product = direction.dot(forward_direction)
+		var importance = clamp(dot_product, 0.0, 1.0)
+		print(importance)
+		var interest = direction * importance
+		
+		draw_line(Vector2(), interest, Color.GREEN, 1.0)
+
+
+func generate_raycasts():
+	for i in range(NUM_RAYS):
+		var ray = RayCast2D.new()
+		var direction = Vector2(cos(i * angle_step), sin(i * angle_step)) * RAY_LENGTH
+		ray.collision_mask = 2
+		ray.add_exception(owner)
+		ray.set_target_position(direction)
+		add_child(ray)
+
+func calc_interest():
+	var forward_direction = to_local(player.global_position)

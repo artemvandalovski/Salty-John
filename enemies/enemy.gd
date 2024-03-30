@@ -23,10 +23,7 @@ func update_label():
 	label.text = str(health) + "HP"
 
 func handle_movement():
-	var dir = to_local(player.global_position)
-	#var dir = to_local(nav_agent.get_next_path_position()).normalized()
-	velocity = dir * speed
-	#velocity *= FRICTION
+	velocity *= FRICTION
 	move_and_slide()
 
 func take_damage(dmg: int):
@@ -37,7 +34,3 @@ func take_damage(dmg: int):
 
 func take_knockback(kb: Vector2):
 	velocity += kb / mass
-
-func make_path():
-	pass
-	#nav_agent.target_position = player.global_position
