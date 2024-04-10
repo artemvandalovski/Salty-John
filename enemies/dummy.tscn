@@ -13,7 +13,6 @@ size = Vector2(80, 80)
 
 [node name="Dummy" instance=ExtResource("1_4le0s")]
 health = 20
-mass = null
 
 [node name="Sprite2D" type="Sprite2D" parent="." index="0"]
 position = Vector2(1.90735e-06, 1.90735e-06)

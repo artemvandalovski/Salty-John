@@ -22,6 +22,7 @@ func _physics_process(delta):
 
 
 func handle_movement():
+	var direction = context_steering.calc_steering()
 	velocity += direction * SPEED
 	velocity *= FRICTION
 	move_and_slide()
