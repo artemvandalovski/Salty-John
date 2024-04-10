@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://bv44wpix1v7ge"]
+[gd_scene load_steps=7 format=3 uid="uid://bv44wpix1v7ge"]
 
 [ext_resource type="PackedScene" uid="uid://beoii3j7408qg" path="res://enemies/enemy.tscn" id="1_4le0s"]
 [ext_resource type="Texture2D" uid="uid://dkhxrbhpbhgoi" path="res://icon.svg" id="2_rs333"]
 [ext_resource type="Script" path="res://common/damage/hurtbox.gd" id="3_7nug7"]
+[ext_resource type="Script" path="res://common/states/chase.gd" id="4_f2i4l"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_43v4y"]
 size = Vector2(64, 64)
@@ -12,6 +13,7 @@ size = Vector2(80, 80)
 
 [node name="Dummy" instance=ExtResource("1_4le0s")]
 health = 20
+mass = null
 
 [node name="Sprite2D" type="Sprite2D" parent="." index="0"]
 position = Vector2(1.90735e-06, 1.90735e-06)
@@ -27,7 +29,10 @@ script = ExtResource("3_7nug7")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" index="0"]
 shape = SubResource("RectangleShape2D_spy3j")
 
-[node name="Label" parent="." index="4"]
+[node name="Chase" type="Node" parent="StateMachine" index="1"]
+script = ExtResource("4_f2i4l")
+
+[node name="Label" parent="." index="5"]
 offset_left = -20.0
 offset_top = -68.0
 offset_right = 20.0

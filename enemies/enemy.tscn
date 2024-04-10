@@ -1,11 +1,19 @@
-[gd_scene load_steps=3 format=3 uid="uid://beoii3j7408qg"]
+[gd_scene load_steps=5 format=3 uid="uid://beoii3j7408qg"]
 
 [ext_resource type="Script" path="res://enemies/enemy.gd" id="1_qbslc"]
 [ext_resource type="Script" path="res://enemies/context_steering.gd" id="2_258u8"]
+[ext_resource type="Script" path="res://common/states/state_machine.gd" id="3_7i88a"]
+[ext_resource type="Script" path="res://common/states/idle.gd" id="3_d556j"]
 
 [node name="Enemy" type="CharacterBody2D" groups=["Enemies"]]
 collision_layer = 4
 script = ExtResource("1_qbslc")
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource("3_7i88a")
+
+[node name="Idle" type="Node" parent="StateMachine"]
+script = ExtResource("3_d556j")
 
 [node name="ContextSteering" type="Node2D" parent="."]
 script = ExtResource("2_258u8")
