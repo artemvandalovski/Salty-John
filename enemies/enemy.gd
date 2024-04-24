@@ -17,16 +17,6 @@ const SPEED = 40
 func _ready():
 	update_label()
 
-func _physics_process(delta):
-	handle_movement()
-
-
-func handle_movement():
-	var direction = context_steering.calc_steering()
-	velocity += direction * SPEED
-	velocity *= FRICTION
-	move_and_slide()
-
 func take_damage(dmg: int):
 	health -= dmg
 	update_label()
@@ -38,3 +28,7 @@ func take_knockback(kb: Vector2):
 
 func update_label():
 	label.text = str(health) + "HP"
+
+
+func _on_breadcrumb_component_breadcrumb_hit():
+	$StateMachine.switch_states($StateMachine/Idle)
