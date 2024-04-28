@@ -3,13 +3,32 @@ extends Node
 
 @export var initial_state: State
 
+@onready var state_label = $"../State"
+
 var current_state: State
+var states: Dictionary = {}
+
 
 func _ready():
-	pass
-	#current_state = initial_state
+	for child in get_children():
+		if child is State:
+			states[child.name] = child
+			child.transition.connect(switch_states)
+		else:
+			push_warning("State machine contains child which is not 'State'")
+	current_state = initial_state
+	current_state.enter()
+	state_label.text = current_state.name
 
-func switch_states(state: State):
-	current_state.set_process(false)
-	set_process(true)
-	current_state = state
+
+func switch_states(new_state_name: StringName):
+	var new_state = states.get(new_state_name)
+	print(new_state)
+	if new_state != null:
+		if new_state != current_state:
+			current_state.exit()
+			new_state.enter()
+			current_state = new_state
+			state_label.text = current_state.name
+	else:
+		push_warning("Called transition on a state that does not exist")

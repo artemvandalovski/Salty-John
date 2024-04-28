@@ -7,15 +7,21 @@ const SPEED = 40
 @export var health := 3
 @export var mass := 1
 
-@onready var label = $Label
-@onready var nav_agent = $NavigationAgent2D
-@onready var context_steering = $ContextSteering
+@onready var health_label = $Health
+@onready var context_steerer = $ContextSteerer
+@onready var state_machine = $StateMachine
 
 @onready var player: Node2D = Global.player
 
+var direction: Vector2
 
 func _ready():
 	update_label()
+	
+func _physics_process(delta):
+	velocity += direction * SPEED
+	velocity *= FRICTION
+	move_and_slide()
 
 func take_damage(dmg: int):
 	health -= dmg
@@ -27,8 +33,9 @@ func take_knockback(kb: Vector2):
 	velocity += kb / mass
 
 func update_label():
-	label.text = str(health) + "HP"
+	health_label.text = str(health) + "HP"
 
 
 func _on_breadcrumb_component_breadcrumb_hit():
-	$StateMachine.switch_states($StateMachine/Idle)
+	var state: State = state_machine.current_state
+	state.transition.emit("idle")
