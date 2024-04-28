@@ -12,25 +12,24 @@
 collision_layer = 4
 script = ExtResource("1_qbslc")
 
-[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+[node name="StateMachine" type="Node2D" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("3_7i88a")
-initial_state = NodePath("Idle")
+initial_state = NodePath("Patrol")
 
-[node name="Idle" type="Node" parent="StateMachine"]
+[node name="Idle" type="Node2D" parent="StateMachine"]
 script = ExtResource("3_d556j")
 
-[node name="Patrol" type="Node" parent="StateMachine"]
+[node name="Patrol" type="Node2D" parent="StateMachine"]
 script = ExtResource("4_3msc3")
 
-[node name="Chase" type="Node" parent="StateMachine"]
+[node name="Chase" type="Node2D" parent="StateMachine"]
 script = ExtResource("4_31qif")
 
 [node name="ContextSteerer" type="Node2D" parent="."]
 script = ExtResource("2_258u8")
 
-[node name="BreadcrumbComponent" type="RayCast2D" parent="." node_paths=PackedStringArray("context_steerer")]
+[node name="BreadcrumbComponent" type="RayCast2D" parent="."]
 script = ExtResource("5_w3oej")
-context_steerer = NodePath("../ContextSteerer")
 
 [node name="Health" type="Label" parent="."]
 anchors_preset = 7

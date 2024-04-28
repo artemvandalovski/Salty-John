@@ -3,22 +3,17 @@ extends RayCast2D
 
 signal breadcrumb_hit
 
-@export var context_steerer: ContextSteerer
 @export var target_radius: float = 10.0
 
 var marker: Marker2D
 
-
 func _enter_tree():
-	assert(context_steerer != null, "Please set the context steering node")
-	
-	collision_mask = 0b1 # Only collide with the world
+	collision_mask = 0b1 # Only collide with the world. REMOVE?
 	
 	marker = Marker2D.new()
 	add_child(marker)
 	marker.top_level = true
-	
-	context_steerer.target_node = marker
+	owner.target = marker
 	
 	# Visible
 	var sp = Sprite2D.new()
@@ -41,7 +36,6 @@ func update_marker(target_pos: Vector2):
 	target_position = target_pos - global_position
 	
 	if is_colliding():
-		print("is_colliding")
 		if owner.global_position.distance_to(marker.global_position) < target_radius:
 			breadcrumb_hit.emit()
 		return

@@ -1,18 +1,16 @@
 class_name ContextSteerer
 extends Node2D
 
-@export var target_node: Node2D
 @export_group("Rays")
 @export var num_rays: int = 8
 @export var ray_length: float = 100.0
+
+@onready var target = owner.target
 
 var player_spotted = false
 
 func _ready():
 	generate_raycasts()
-	
-	if target_node == null:
-		target_node = Global.player
 
 
 func generate_raycasts():
@@ -29,7 +27,7 @@ func generate_raycasts():
 
 func calc_steering() -> Vector2:
 	var result = Vector2.ZERO
-	var target_pos = to_local(target_node.global_position)
+	var target_pos = to_local(target.global_position)
 	
 	for i in num_rays:
 		var ray: RayCast2D = get_child(i)

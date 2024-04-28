@@ -11,7 +11,7 @@ const SPEED = 40
 @onready var context_steerer = $ContextSteerer
 @onready var state_machine = $StateMachine
 
-@onready var player: Node2D = Global.player
+var target = Global.player
 
 var direction: Vector2
 

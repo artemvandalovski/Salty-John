@@ -36,9 +36,10 @@ format = 2
 y_sort_enabled = true
 
 [node name="John" parent="Y-Sort" instance=ExtResource("1_7dqi1")]
+position = Vector2(204, -236)
 
 [node name="Dummy" parent="Y-Sort" instance=ExtResource("2_vxqqo")]
-position = Vector2(190, -203)
+position = Vector2(-93, 36)
 
 [node name="Chair" parent="Y-Sort" instance=ExtResource("3_0gulq")]
 position = Vector2(144, -56)
