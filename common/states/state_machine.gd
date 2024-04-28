@@ -12,7 +12,7 @@ var states: Dictionary = {}
 func _ready():
 	for child in get_children():
 		if child is State:
-			states[child.name] = child
+			states[child.name.to_lower()] = child
 			child.transition.connect(switch_states)
 		else:
 			push_warning("State machine contains child which is not 'State'")
@@ -20,10 +20,15 @@ func _ready():
 	current_state.enter()
 	state_label.text = current_state.name
 
+func _process(delta):
+	current_state.process(delta)
+		
+func _physics_process(delta):
+	current_state.physics_process(delta)
+	
 
 func switch_states(new_state_name: StringName):
-	var new_state = states.get(new_state_name)
-	print(new_state)
+	var new_state = states.get(new_state_name.to_lower())
 	if new_state != null:
 		if new_state != current_state:
 			current_state.exit()

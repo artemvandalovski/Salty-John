@@ -57,6 +57,7 @@ offset_right = 20.0
 offset_bottom = 46.0
 grow_horizontal = 2
 size_flags_horizontal = 4
+text = "Idle"
 horizontal_alignment = 1
 
 [connection signal="breadcrumb_hit" from="BreadcrumbComponent" to="." method="_on_breadcrumb_component_breadcrumb_hit"]
