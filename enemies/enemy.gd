@@ -7,13 +7,14 @@ const SPEED = 40
 @export var health := 3
 @export var mass := 1
 
-@onready var health_label = $Health
 @onready var context_steerer = $ContextSteerer
 @onready var state_machine = $StateMachine
 
-var target = Global.player
+@onready var health_label = $Health
 
+#var target = Global.player
 var direction: Vector2
+
 
 func _ready():
 	update_label()
@@ -22,6 +23,7 @@ func _physics_process(delta):
 	velocity += direction * SPEED
 	velocity *= FRICTION
 	move_and_slide()
+
 
 func take_damage(dmg: int):
 	health -= dmg

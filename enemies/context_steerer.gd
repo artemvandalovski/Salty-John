@@ -7,13 +7,8 @@ extends Node2D
 
 @onready var target = owner.target
 
-var player_spotted = false
 
 func _ready():
-	generate_raycasts()
-
-
-func generate_raycasts():
 	var angle_step: float = TAU / num_rays
 	
 	for i in num_rays:
@@ -24,6 +19,7 @@ func generate_raycasts():
 		ray.collision_mask = 5
 		ray.set_target_position(direction)
 		add_child(ray)
+
 
 func calc_steering() -> Vector2:
 	var result = Vector2.ZERO

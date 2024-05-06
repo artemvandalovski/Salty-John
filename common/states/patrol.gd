@@ -11,13 +11,6 @@ func enter():
 	add_child(marker)
 	marker.top_level = true
 	
-	# Visible
-	var sp = Sprite2D.new()
-	sp.texture = load("res://icon.svg")
-	sp.scale *= 0.2
-	sp.modulate = Color(1.0, 0.0, 1.0, 1.0)
-	marker.add_child(sp)
-	
 	update_marker_position()
 
 func process(delta):
