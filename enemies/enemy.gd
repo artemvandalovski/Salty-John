@@ -6,13 +6,13 @@ const SPEED = 40
 
 @export var health := 3
 @export var mass := 1
+@export var hostile = false
 
 @onready var state_machine = $StateMachine
 
 @onready var health_label = $Health
 
 var direction: Vector2
-var hostile = false
 
 
 func _ready():
@@ -26,6 +26,7 @@ func _physics_process(delta):
 
 func take_damage(dmg: int):
 	health -= dmg
+	hostile = true
 	update_label()
 	if health <= 0:
 		queue_free()

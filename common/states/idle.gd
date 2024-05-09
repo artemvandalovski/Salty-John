@@ -1,8 +1,8 @@
 class_name Idle
 extends State
 
-@export var min_wait_time: float = 1.0
-@export var max_wait_time: float = 3.0
+@export var min_wait_time = 1.0
+@export var max_wait_time = 3.0
 
 @export var player_tracker: PlayerTracker
 
@@ -20,5 +20,5 @@ func process(delta):
 	wait_time -= delta
 	if wait_time <= 0:
 		transition.emit("patrol")
-	if player_tracker.is_player_on_sight():
+	if player_tracker.is_player_on_sight() and owner.hostile:
 		transition.emit("chase")

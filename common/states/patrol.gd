@@ -1,9 +1,9 @@
 class_name Patrol
 extends State
 
-@export var max_distance: float = 300.0
-@export var min_distance: float = 200.0
-@export var target_radius: float = 100.0
+@export var max_distance = 300.0
+@export var min_distance = 200.0
+@export var target_radius = 100.0
 
 @export var context_steerer: ContextSteerer
 @export var player_tracker: PlayerTracker
@@ -18,12 +18,13 @@ func enter():
 
 func process(delta):
 	owner.direction = context_steerer.calc_steering()
-	if player_tracker.is_player_on_sight():
+	if player_tracker.is_player_on_sight() and owner.hostile:
 		transition.emit("chase")
 	elif owner.position.distance_to(context_steerer.target_marker.position) < target_radius:
 		transition.emit("idle")
 
 
+# TODO: rework points
 ## Random but also influenced by the player position
 func set_patrol_point():
 	var rand_radian = randf_range(0, TAU)
