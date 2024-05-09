@@ -4,27 +4,30 @@ extends State
 @export var max_distance: float = 300.0
 @export var min_distance: float = 200.0
 
-var marker: Marker2D
+@export var target: Marker2D
+@export var target_tracker: TargetTracker
+
+func _ready():
+	assert(target_tracker != null, "Please set the target_tracker node")
 
 func enter():
-	marker = Marker2D.new()
-	add_child(marker)
-	marker.top_level = true
-	
-	update_marker_position()
+	pass
 
 func process(delta):
-	owner.direction = global_position.direction_to(marker.global_position)
+	while !target_tracker.is_target_on_sight:
+		set_patrol_position()
+	owner.direction = global_position.direction_to(target.global_position)
+
 
 ## Random but also influenced by the player position
-func update_marker_position():
+func set_patrol_position():
 	var rand_radian = randf_range(0, TAU)
 	var rand_direction = Vector2.from_angle(rand_radian)
 	
-	var target = to_local(owner.target.global_position)
-	var dot_product = rand_direction.dot(target)
+	var player_pos = to_local(Global.player.global_position)
+	var dot_product = rand_direction.dot(player_pos)
 	var interest = clamp(dot_product, 0.5, 1.0)
 	
-	var distance = position.distance_to(target)
+	var distance = position.distance_to(player_pos)
 	distance = clamp(distance, min_distance, max_distance)
-	marker.global_position = global_position + (rand_direction * interest) * distance
+	target.position = global_position + (rand_direction * interest) * distance

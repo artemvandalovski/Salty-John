@@ -3,7 +3,7 @@ extends Node
 
 @export var initial_state: State
 
-@onready var state_label = $"../State"
+@onready var state_label = $State
 
 var current_state: State
 var states: Dictionary = {}
@@ -22,10 +22,10 @@ func _ready():
 
 func _process(delta):
 	current_state.process(delta)
-
+		
 func _physics_process(delta):
 	current_state.physics_process(delta)
-
+	
 
 func switch_states(new_state_name: StringName):
 	var new_state = states.get(new_state_name.to_lower())
