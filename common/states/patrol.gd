@@ -3,24 +3,29 @@ extends State
 
 @export var max_distance: float = 300.0
 @export var min_distance: float = 200.0
+@export var target_radius: float = 100.0
 
-#@export var target: Marker2D
-#@export var player_tracker: PlayerTracker
+@export var context_steerer: ContextSteerer
+@export var player_tracker: PlayerTracker
 
-#func _ready():
-	#assert(player_tracker != null, "Please set the target_tracker node")
+
+func _ready():
+	assert(context_steerer != null, "Please set the context_steerer node")
+	assert(player_tracker != null, "Please set the player_tracker node")
 
 func enter():
-	set_patrol_position()
+	set_patrol_point()
 
-#func process(delta):
-	#while !player_tracker.is_target_on_sight():
-		#set_patrol_position()
-	#owner.direction = global_position.direction_to(target.global_position)
+func process(delta):
+	owner.direction = context_steerer.calc_steering()
+	if player_tracker.is_player_on_sight():
+		transition.emit("chase")
+	elif owner.position.distance_to(context_steerer.target_marker.position) < target_radius:
+		transition.emit("idle")
 
 
 ## Random but also influenced by the player position
-func set_patrol_position():
+func set_patrol_point():
 	var rand_radian = randf_range(0, TAU)
 	var rand_direction = Vector2.from_angle(rand_radian)
 	
@@ -30,4 +35,6 @@ func set_patrol_position():
 	
 	var distance = position.distance_to(player_pos)
 	distance = clamp(distance, min_distance, max_distance)
-	#target.position = global_position + (rand_direction * interest) * distance
+	
+	var patrol_point = global_position + (rand_direction * interest) * distance
+	context_steerer.target_marker.set_position(patrol_point)

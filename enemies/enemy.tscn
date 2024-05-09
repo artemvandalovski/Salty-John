@@ -17,11 +17,14 @@ script = ExtResource("1_qbslc")
 script = ExtResource("3_7i88a")
 initial_state = NodePath("Chase")
 
-[node name="Idle" type="Node2D" parent="StateMachine"]
+[node name="Idle" type="Node2D" parent="StateMachine" node_paths=PackedStringArray("player_tracker")]
 script = ExtResource("3_d556j")
+player_tracker = NodePath("../../PlayerTracker")
 
-[node name="Patrol" type="Node2D" parent="StateMachine"]
+[node name="Patrol" type="Node2D" parent="StateMachine" node_paths=PackedStringArray("context_steerer", "player_tracker")]
 script = ExtResource("4_3msc3")
+context_steerer = NodePath("../../ContextSteerer")
+player_tracker = NodePath("../../PlayerTracker")
 
 [node name="Chase" type="Node2D" parent="StateMachine" node_paths=PackedStringArray("context_steerer", "player_tracker")]
 script = ExtResource("4_31qif")

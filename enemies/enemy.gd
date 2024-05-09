@@ -14,9 +14,10 @@ const SPEED = 40
 var direction: Vector2
 var hostile = false
 
+
 func _ready():
 	update_label()
-	
+
 func _physics_process(delta):
 	velocity += direction * SPEED
 	velocity *= FRICTION

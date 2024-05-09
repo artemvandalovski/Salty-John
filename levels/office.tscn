@@ -44,9 +44,38 @@ position = Vector2(-93, 36)
 [node name="Chair" parent="Y-Sort" instance=ExtResource("3_0gulq")]
 position = Vector2(144, -56)
 
+[node name="Wall3" type="StaticBody2D" parent="Y-Sort"]
+position = Vector2(378, -36)
+rotation = 1.57645
+scale = Vector2(1.1156, 1)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Y-Sort/Wall3"]
+position = Vector2(18, 9)
+scale = Vector2(2.35156, 0.5)
+texture = ExtResource("4_wyy82")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Y-Sort/Wall3"]
+position = Vector2(16, 8.5)
+shape = SubResource("RectangleShape2D_jn377")
+
+[node name="Wall2" type="StaticBody2D" parent="Y-Sort"]
+position = Vector2(-63, 162)
+scale = Vector2(1.4816, 1)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Y-Sort/Wall2"]
+position = Vector2(18, 9)
+scale = Vector2(2.35156, 0.5)
+texture = ExtResource("4_wyy82")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Y-Sort/Wall2"]
+position = Vector2(16, 8.5)
+shape = SubResource("RectangleShape2D_jn377")
+
 [node name="Wall" type="StaticBody2D" parent="Y-Sort"]
-position = Vector2(-197, -107)
-rotation = -0.316844
+position = Vector2(-297, -219)
+scale = Vector2(1.96, 1)
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Y-Sort/Wall"]

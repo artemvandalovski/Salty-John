@@ -9,13 +9,14 @@ extends State
 
 func _ready():
 	assert(context_steerer != null, "Please set the context_steerer node")
+	assert(player_tracker != null, "Please set the player_tracker node")
 
 func process(delta):
 	owner.direction = context_steerer.calc_steering()
-	update_chase_position()
+	follow_player()
 
 
-func update_chase_position():
+func follow_player():
 	var target = context_steerer.target_marker ## last position seen by the player
 	if player_tracker.is_player_on_sight():
 		target.set_position(Global.player.position)
