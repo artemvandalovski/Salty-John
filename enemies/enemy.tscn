@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://beoii3j7408qg"]
+[gd_scene load_steps=9 format=3 uid="uid://beoii3j7408qg"]
 
 [ext_resource type="Script" path="res://enemies/enemy.gd" id="1_qbslc"]
 [ext_resource type="Script" path="res://common/states/state_machine.gd" id="3_7i88a"]
@@ -6,7 +6,8 @@
 [ext_resource type="Script" path="res://common/states/patrol.gd" id="4_3msc3"]
 [ext_resource type="Script" path="res://common/states/chase.gd" id="4_31qif"]
 [ext_resource type="Script" path="res://enemies/context_steerer.gd" id="6_1yedj"]
-[ext_resource type="Script" path="res://enemies/target_tracker.gd" id="6_nyuoj"]
+[ext_resource type="Script" path="res://enemies/player_tracker.gd" id="7_xc0r3"]
+[ext_resource type="Texture2D" uid="uid://dkhxrbhpbhgoi" path="res://icon.svg" id="8_e4oxj"]
 
 [node name="Enemy" type="CharacterBody2D" groups=["Enemies"]]
 collision_layer = 4
@@ -14,18 +15,18 @@ script = ExtResource("1_qbslc")
 
 [node name="StateMachine" type="Node2D" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("3_7i88a")
-initial_state = NodePath("Patrol")
+initial_state = NodePath("Chase")
 
 [node name="Idle" type="Node2D" parent="StateMachine"]
 script = ExtResource("3_d556j")
 
-[node name="Patrol" type="Node2D" parent="StateMachine" node_paths=PackedStringArray("target", "target_tracker")]
+[node name="Patrol" type="Node2D" parent="StateMachine"]
 script = ExtResource("4_3msc3")
-target = NodePath("../../TargetTracker/Target")
-target_tracker = NodePath("../../TargetTracker")
 
-[node name="Chase" type="Node2D" parent="StateMachine"]
+[node name="Chase" type="Node2D" parent="StateMachine" node_paths=PackedStringArray("context_steerer", "player_tracker")]
 script = ExtResource("4_31qif")
+context_steerer = NodePath("../../ContextSteerer")
+player_tracker = NodePath("../../PlayerTracker")
 
 [node name="State" type="Label" parent="StateMachine"]
 anchors_preset = 5
@@ -43,12 +44,16 @@ horizontal_alignment = 1
 [node name="ContextSteerer" type="Node2D" parent="."]
 script = ExtResource("6_1yedj")
 
-[node name="TargetTracker" type="RayCast2D" parent="."]
-script = ExtResource("6_nyuoj")
-visible_target = true
+[node name="PlayerTracker" type="RayCast2D" parent="."]
+script = ExtResource("7_xc0r3")
 
-[node name="Target" type="Marker2D" parent="TargetTracker"]
+[node name="Target" type="Marker2D" parent="."]
 top_level = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Target"]
+modulate = Color(1, 0, 1, 1)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("8_e4oxj")
 
 [node name="Health" type="Label" parent="."]
 anchors_preset = 7

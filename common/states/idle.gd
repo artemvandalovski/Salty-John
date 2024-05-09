@@ -7,9 +7,11 @@ extends State
 var wait_time: float
 
 func enter():
+	owner.direction = Vector2.ZERO
 	wait_time = randf_range(min_wait_time, max_wait_time)
 
 func process(delta):
+	
 	wait_time -= delta
 	if wait_time <= 0:
 		transition.emit("patrol")

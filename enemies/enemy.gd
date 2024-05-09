@@ -7,14 +7,12 @@ const SPEED = 40
 @export var health := 3
 @export var mass := 1
 
-@onready var context_steerer = $ContextSteerer
 @onready var state_machine = $StateMachine
 
 @onready var health_label = $Health
 
-#var target = Global.player
 var direction: Vector2
-
+var hostile = false
 
 func _ready():
 	update_label()
