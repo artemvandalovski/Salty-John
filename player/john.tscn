@@ -36,7 +36,6 @@ script = ExtResource("4_s731r")
 shape = SubResource("RectangleShape2D_m4rbr")
 
 [node name="InvincibilityTimer" type="Timer" parent="Hurtbox"]
-wait_time = 2.0
 one_shot = true
 
 [node name="Health" type="Label" parent="."]
@@ -55,4 +54,5 @@ size_flags_horizontal = 4
 text = "HP"
 horizontal_alignment = 1
 
+[connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
 [connection signal="timeout" from="Hurtbox/InvincibilityTimer" to="." method="_on_invincibility_timer_timeout"]

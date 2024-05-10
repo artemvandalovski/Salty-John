@@ -104,5 +104,3 @@ offset_bottom = 46.0
 grow_horizontal = 2
 size_flags_horizontal = 4
 horizontal_alignment = 1
-
-[connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]

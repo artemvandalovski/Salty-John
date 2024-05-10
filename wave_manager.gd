@@ -7,7 +7,7 @@ const COWORKER = preload("res://enemies/coworker.tscn")
 
 @onready var timer = $Timer
 
-var enemies_amount = 1
+var enemies_amount = 3
 var remaining_enemies: int
 
 var attack_player = false

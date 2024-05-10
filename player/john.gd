@@ -41,7 +41,7 @@ func take_knockback(kb: Vector2):
 	velocity += kb / mass
 
 func start_invincibility():
-	hurtbox.set_deferred("monitorable", false)
+	hurtbox.set_deferred("monitoring", false)
 	invincibility_timer.start()
 
 func flip_sprite():
@@ -52,4 +52,10 @@ func update_label():
 
 
 func _on_invincibility_timer_timeout():
-	hurtbox.monitorable = true
+	hurtbox.monitoring = true
+
+
+func _on_hurtbox_area_entered(area):
+	if area.owner.get_groups()[0] == "Enemies":
+		take_damage(1)
+		take_knockback(area.owner.velocity + (area.owner.direction * randi_range(300, 600)))
