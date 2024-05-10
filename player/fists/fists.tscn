@@ -10,11 +10,11 @@ position = Vector2(0, -16)
 input = "left_click"
 
 [node name="DragCenter" type="Marker2D" parent="Left" index="3"]
-position = Vector2(24, -12)
+position = Vector2(16, -12)
 
 [node name="Right" parent="." index="2" instance=ExtResource("1_ux0o8")]
 position = Vector2(0, 16)
 input = "right_click"
 
 [node name="DragCenter" type="Marker2D" parent="Right" index="3"]
-position = Vector2(24, 12)
+position = Vector2(16, 12)

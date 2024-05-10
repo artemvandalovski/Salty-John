@@ -3,7 +3,7 @@ extends Node2D
 
 @export_group("Rays")
 @export var num_rays: int = 8
-@export var ray_length: float = 50.0
+@export var ray_length: float = 30.0
 
 @onready var target_marker: Marker2D = $"../Target"
 

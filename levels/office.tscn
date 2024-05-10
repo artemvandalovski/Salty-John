@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://dqciapcjqxcer" path="res://tilemaps/office_floor.png" id="1_3w1yi"]
 [ext_resource type="PackedScene" uid="uid://dqut3jqv5pwgt" path="res://player/john.tscn" id="1_7dqi1"]
 [ext_resource type="Texture2D" uid="uid://cnppwvwyp5kdb" path="res://tilemaps/wall_tiles.png" id="2_um18x"]
-[ext_resource type="PackedScene" uid="uid://bv44wpix1v7ge" path="res://enemies/dummy.tscn" id="2_vxqqo"]
+[ext_resource type="PackedScene" uid="uid://bv44wpix1v7ge" path="res://enemies/coworker.tscn" id="2_vxqqo"]
 [ext_resource type="PackedScene" uid="uid://rfoidhvmwr78" path="res://environment/draggable/chair/chair.tscn" id="3_0gulq"]
 [ext_resource type="Script" path="res://tilemaps/tilemap.gd" id="5_v1ugv"]
 
@@ -51,6 +51,7 @@ texture_region_size = Vector2i(32, 32)
 4:0/0/terrain = 0
 4:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 4:0/0/physics_layer_0/angular_velocity = 0.0
+4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 4:0/0/terrains_peering_bit/right_side = 0
 4:0/0/terrains_peering_bit/bottom_side = 0
 4:0/0/terrains_peering_bit/bottom_left_corner = 0
@@ -63,6 +64,7 @@ texture_region_size = Vector2i(32, 32)
 5:0/0/terrain = 0
 5:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 5:0/0/physics_layer_0/angular_velocity = 0.0
+5:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 5:0/0/terrains_peering_bit/right_side = 0
 5:0/0/terrains_peering_bit/bottom_right_corner = 0
 5:0/0/terrains_peering_bit/bottom_side = 0
@@ -119,6 +121,7 @@ texture_region_size = Vector2i(32, 32)
 4:1/0/terrain = 0
 4:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 4:1/0/physics_layer_0/angular_velocity = 0.0
+4:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 4:1/0/terrains_peering_bit/right_side = 0
 4:1/0/terrains_peering_bit/bottom_right_corner = 0
 4:1/0/terrains_peering_bit/bottom_side = 0
@@ -131,6 +134,7 @@ texture_region_size = Vector2i(32, 32)
 5:1/0/terrain = 0
 5:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 5:1/0/physics_layer_0/angular_velocity = 0.0
+5:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 5:1/0/terrains_peering_bit/right_side = 0
 5:1/0/terrains_peering_bit/bottom_right_corner = 0
 5:1/0/terrains_peering_bit/bottom_side = 0
@@ -246,7 +250,6 @@ y_sort_enabled = true
 
 [node name="John" parent="Y-Sort" instance=ExtResource("1_7dqi1")]
 position = Vector2(1, -107)
-scale = Vector2(0.8, 0.8)
 
 [node name="Camera2D" type="Camera2D" parent="Y-Sort/John"]
 position = Vector2(-1, 107)

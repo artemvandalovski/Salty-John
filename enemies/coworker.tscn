@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://bv44wpix1v7ge"]
+
+[ext_resource type="PackedScene" uid="uid://beoii3j7408qg" path="res://enemies/enemy.tscn" id="1_wgwd0"]
+[ext_resource type="Texture2D" uid="uid://byjp5p7p6m8l8" path="res://enemies/sprites/coworker.png" id="2_poyoq"]
+[ext_resource type="Script" path="res://common/damage/hurtbox.gd" id="3_8cakd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_43v4y"]
+size = Vector2(16, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_spy3j"]
+size = Vector2(32, 52)
+
+[node name="Coworker" instance=ExtResource("1_wgwd0")]
+health = 20
+
+[node name="Sprite2D" type="Sprite2D" parent="." index="0"]
+position = Vector2(1.90735e-06, 1.90735e-06)
+texture = ExtResource("2_poyoq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
+position = Vector2(0, 16)
+shape = SubResource("RectangleShape2D_43v4y")
+
+[node name="Hurtbox" type="Area2D" parent="." index="2"]
+script = ExtResource("3_8cakd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" index="0"]
+position = Vector2(0, 6)
+shape = SubResource("RectangleShape2D_spy3j")
+
+[node name="StateMachine" parent="." index="3" node_paths=PackedStringArray("initial_state")]
+initial_state = NodePath("Idle")

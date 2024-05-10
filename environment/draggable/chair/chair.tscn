@@ -4,16 +4,16 @@
 [ext_resource type="Texture2D" uid="uid://c4vya5yxl5mi" path="res://environment/draggable/chair/office_chair.png" id="2_3hobp"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_htfjk"]
-radius = 24.0208
+radius = 16.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_22np1"]
-radius = 40.0
+radius = 25.02
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xrbu4"]
-radius = 32.0
+radius = 21.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hjvix"]
-radius = 32.0
+radius = 21.0
 
 [node name="Chair" instance=ExtResource("1_xuccq")]
 mass = 1.2
@@ -21,7 +21,10 @@ linear_damp = 2.0
 angular_damp = 1.0
 spin_force = 4
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="0"]
+[node name="Sprite2D" type="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_3hobp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
 shape = SubResource("CircleShape2D_htfjk")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GrabArea" index="0"]
@@ -29,10 +32,6 @@ shape = SubResource("CircleShape2D_22np1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" index="0"]
 shape = SubResource("CircleShape2D_xrbu4")
-
-[node name="Sprite2D" type="Sprite2D" parent="." index="3"]
-scale = Vector2(1.5, 1.5)
-texture = ExtResource("2_3hobp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" index="0"]
 shape = SubResource("CircleShape2D_hjvix")
