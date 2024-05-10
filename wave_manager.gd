@@ -3,6 +3,7 @@ class_name WaveManager
 
 const COWORKER = preload("res://enemies/coworker.tscn")
 
+var enemies_amount = 1
 var remaining_enemies: int
 
 @onready var y_sort = $"../Y-Sort"
@@ -11,6 +12,14 @@ var remaining_enemies: int
 func _ready():
 	spawn_enemy()
 
+
+func wave_begin():
+	for enemy in enemies_amount:
+		spawn_enemy()
+
+func wave_completed():
+	enemies_amount += 1
+	wave_begin()
 
 func spawn_enemy():
 	var enemy = COWORKER.instantiate()
@@ -22,4 +31,5 @@ func spawn_enemy():
 
 func _on_enemy_dead():
 	remaining_enemies -= 1
-	
+	if remaining_enemies <= 0:
+		wave_completed()
