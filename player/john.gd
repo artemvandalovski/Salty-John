@@ -35,7 +35,7 @@ func take_damage(dmg: int):
 	start_invincibility()
 	update_label()
 	if health <= 0:
-		queue_free()
+		get_tree().change_scene_to_file("res://ui/menu.tscn")
 
 func take_knockback(kb: Vector2):
 	velocity += kb / mass

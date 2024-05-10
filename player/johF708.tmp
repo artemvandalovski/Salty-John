@@ -1,0 +1,59 @@
+[gd_scene load_steps=7 format=3 uid="uid://dqut3jqv5pwgt"]
+
+[ext_resource type="Script" path="res://player/john.gd" id="1_3ss1g"]
+[ext_resource type="Texture2D" uid="uid://qm2m6xj8mj78" path="res://player/sprites/john.png" id="2_0gq6d"]
+[ext_resource type="Script" path="res://player/item_container.gd" id="3_mpuh5"]
+[ext_resource type="Script" path="res://common/damage/hurtbox.gd" id="4_s731r"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xkjc4"]
+size = Vector2(16, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m4rbr"]
+
+[node name="John" type="CharacterBody2D"]
+collision_layer = 2
+script = ExtResource("1_3ss1g")
+health = 1
+mass = null
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -2)
+texture = ExtResource("2_0gq6d")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 13)
+shape = SubResource("RectangleShape2D_xkjc4")
+
+[node name="ItemContainer" type="Node2D" parent="."]
+script = ExtResource("3_mpuh5")
+
+[node name="Hand" type="Marker2D" parent="ItemContainer"]
+position = Vector2(24, 0)
+
+[node name="Hurtbox" type="Area2D" parent="."]
+script = ExtResource("4_s731r")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+shape = SubResource("RectangleShape2D_m4rbr")
+
+[node name="InvincibilityTimer" type="Timer" parent="Hurtbox"]
+wait_time = 2.0
+one_shot = true
+
+[node name="Health" type="Label" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -49.0
+offset_right = 20.0
+offset_bottom = -26.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+text = "HP"
+horizontal_alignment = 1
+
+[connection signal="timeout" from="Hurtbox/InvincibilityTimer" to="." method="_on_invincibility_timer_timeout"]

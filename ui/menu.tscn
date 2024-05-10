@@ -1,0 +1,57 @@
+[gd_scene load_steps=3 format=3 uid="uid://15vr3l1exjn0"]
+
+[ext_resource type="Texture2D" uid="uid://bm4w7vt3oxp67" path="res://ui/salty_menu.png" id="1_q25mk"]
+[ext_resource type="Script" path="res://ui/menu.gd" id="1_t0k16"]
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_t0k16")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0.309804, 0.603922, 0.843137, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(598, 216)
+scale = Vector2(0.6875, 0.6875)
+texture = ExtResource("1_q25mk")
+
+[node name="Start" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -168.0
+offset_top = -208.0
+offset_right = 168.0
+offset_bottom = -158.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Commencer la partie"
+
+[node name="Quit" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -80.0
+offset_top = -120.0
+offset_right = 88.0
+offset_bottom = -70.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Quitter"
+
+[connection signal="pressed" from="Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
