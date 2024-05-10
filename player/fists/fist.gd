@@ -6,8 +6,8 @@ const CHARGE_RATE = 2
 const MAX_CHARGE = 2
 const COOLDOWN = 0.07
 
-const KNOCKBACK_STRENGTH: float = 200.0
-const KNOCKBACK_MIN: float = 100.0
+const KNOCKBACK_STRENGTH: float = 300.0
+const KNOCKBACK_MIN: float = 200.0
 
 signal drag_started(node: Draggable)
 signal drag_stopped(node: Draggable)

@@ -257,8 +257,8 @@ zoom = Vector2(1.2, 1.2)
 position_smoothing_enabled = true
 position_smoothing_speed = 7.0
 
-[node name="Dummy" parent="Y-Sort" instance=ExtResource("2_vxqqo")]
-position = Vector2(-510, 202)
+[node name="Coworker" parent="Y-Sort" instance=ExtResource("2_vxqqo")]
+position = Vector2(-136, 24)
 
 [node name="Chair" parent="Y-Sort" instance=ExtResource("3_0gulq")]
-position = Vector2(0, 8)
+position = Vector2(0, 120)

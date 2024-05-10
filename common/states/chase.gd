@@ -1,7 +1,7 @@
 class_name Chase
 extends State
 
-@export var target_radius = 50.0
+@export var target_radius = 10.0
 
 @export var context_steerer: ContextSteerer
 @export var player_tracker: PlayerTracker

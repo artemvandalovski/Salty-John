@@ -5,7 +5,7 @@
 [ext_resource type="Script" path="res://player/item_container.gd" id="3_mpuh5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xkjc4"]
-size = Vector2(16, 29)
+size = Vector2(16, 32)
 
 [node name="John" type="CharacterBody2D"]
 collision_layer = 2
@@ -16,7 +16,7 @@ position = Vector2(0, -2)
 texture = ExtResource("2_0gq6d")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 14.5)
+position = Vector2(0, 13)
 shape = SubResource("RectangleShape2D_xkjc4")
 
 [node name="ItemContainer" type="Node2D" parent="."]
