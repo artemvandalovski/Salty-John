@@ -10,6 +10,8 @@ const COWORKER = preload("res://enemies/coworker.tscn")
 var enemies_amount = 1
 var remaining_enemies: int
 
+var attack_player = false
+
 
 func _ready():
 	assert(y_sort != null, "Please set the y_sort node")
@@ -26,6 +28,7 @@ func wave_completed():
 
 func spawn_enemy():
 	var enemy = COWORKER.instantiate()
+	enemy.hostile = attack_player
 	enemy.position = Global.tilemap.get_rand_floor_tile()
 	enemy.connect("hurt", _on_enemy_hurt)
 	enemy.connect("dead", _on_enemy_dead)
@@ -34,8 +37,9 @@ func spawn_enemy():
 
 func _on_enemy_hurt():
 	var enemies = get_tree().get_nodes_in_group("Enemies")
+	attack_player = true
 	for enemy: Enemy in enemies:
-		enemy.hostile = true
+		enemy.hostile = attack_player
 
 func _on_enemy_dead():
 	remaining_enemies -= 1

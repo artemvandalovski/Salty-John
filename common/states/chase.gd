@@ -22,6 +22,7 @@ func process(delta):
 
 
 func follow_player():
+	if Global.player == null: return false
 	var target = context_steerer.target_marker ## last position seen by the player
 	if player_tracker.is_player_on_sight():
 		target.set_position(Global.player.position)

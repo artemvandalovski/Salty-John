@@ -13,6 +13,7 @@ const SPEED = 100.0
 
 
 func _ready():
+	health_label.visible = Global.DEBUG
 	update_label()
 	Global.player = self
 

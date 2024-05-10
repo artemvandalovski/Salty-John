@@ -11,13 +11,13 @@ signal dead
 @export var mass := 1
 @export var hostile = false
 
-@onready var state_machine = $StateMachine
 @onready var health_label = $Health
 
 var direction: Vector2
 var speed: float = 40.0
 
 func _ready():
+	health_label.visible = Global.DEBUG
 	update_label()
 
 func _physics_process(delta):
