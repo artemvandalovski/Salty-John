@@ -29,7 +29,7 @@ shape = SubResource("RectangleShape2D_spy3j")
 [node name="Sprite2D" parent="Target" index="0"]
 position = Vector2(-3.8147e-06, 0)
 
-[node name="Health" parent="." index="7"]
+[node name="Health" parent="." index="8"]
 offset_left = -16.0
 offset_top = -40.0
 offset_right = 24.0

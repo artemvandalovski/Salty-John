@@ -2,6 +2,7 @@ class_name Chase
 extends State
 
 @export var target_radius = 10.0
+@export var chasing_speed = 40.0
 
 @export var context_steerer: ContextSteerer
 @export var player_tracker: PlayerTracker
@@ -10,6 +11,10 @@ extends State
 func _ready():
 	assert(context_steerer != null, "Please set the context_steerer node")
 	assert(player_tracker != null, "Please set the player_tracker node")
+
+
+func enter():
+	owner.speed = chasing_speed
 
 func process(delta):
 	owner.direction = context_steerer.calc_steering()

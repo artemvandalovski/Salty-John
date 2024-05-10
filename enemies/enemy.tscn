@@ -15,7 +15,7 @@ script = ExtResource("1_qbslc")
 
 [node name="StateMachine" type="Node2D" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("3_7i88a")
-initial_state = NodePath("Chase")
+initial_state = NodePath("Idle")
 
 [node name="Idle" type="Node2D" parent="StateMachine" node_paths=PackedStringArray("player_tracker")]
 script = ExtResource("3_d556j")
@@ -47,8 +47,9 @@ horizontal_alignment = 1
 [node name="ContextSteerer" type="Node2D" parent="."]
 script = ExtResource("6_1yedj")
 
-[node name="PlayerTracker" type="RayCast2D" parent="."]
+[node name="PlayerTracker" type="RayCast2D" parent="." node_paths=PackedStringArray("target")]
 script = ExtResource("7_xc0r3")
+target = NodePath("../Target")
 
 [node name="Target" type="Marker2D" parent="."]
 top_level = true

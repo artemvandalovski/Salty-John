@@ -2,7 +2,6 @@ class_name Enemy
 extends CharacterBody2D
 
 const FRICTION = 0.85
-const SPEED = 40
 
 @export var health := 3
 @export var mass := 1
@@ -13,13 +12,13 @@ const SPEED = 40
 @onready var health_label = $Health
 
 var direction: Vector2
-
+var speed: float = 40.0
 
 func _ready():
 	update_label()
 
 func _physics_process(delta):
-	velocity += direction * SPEED
+	velocity += direction * speed
 	velocity *= FRICTION
 	move_and_slide()
 
