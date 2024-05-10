@@ -18,12 +18,20 @@ func enter():
 
 func process(delta):
 	owner.direction = context_steerer.calc_steering()
-	if player_tracker.is_player_on_sight() and owner.hostile:
-		transition.emit("chase")
-	elif owner.position.distance_to(context_steerer.target_marker.position) < target_radius:
-		transition.emit("idle")
+	#set_patrol_point()
+	#if player_tracker.is_player_on_sight() and owner.hostile:
+		#transition.emit("chase")
+	#elif owner.position.distance_to(context_steerer.target_marker.position) < target_radius:
+		#transition.emit("idle")
 
 
 func set_patrol_point():
 	var patrol_position = Global.tilemap.get_rand_floor_tile()
-	context_steerer.target_marker.set_position(patrol_position)
+	player_tracker.set_target_position(to_local(patrol_position))
+	print(player_tracker.is_colliding())
+	#var ray: RayCast2D = RayCast2D.new()
+	#ray.set_collision_mask(1)
+	#ray.set_target_position(to_local(Global.player.position))
+	#print(ray.is_colliding())
+	
+	#context_steerer.target_marker.set_position(patrol_position)

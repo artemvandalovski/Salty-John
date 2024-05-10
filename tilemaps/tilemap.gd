@@ -3,7 +3,7 @@ extends TileMap
 
 func _ready():
 	Global.tilemap = self
-	print(get_rand_floor_tile())
+	get_rand_floor_tile()
 
 
 func get_rand_tile(layer: int, id: int) -> Vector2:

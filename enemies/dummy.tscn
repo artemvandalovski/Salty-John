@@ -11,6 +11,7 @@ size = Vector2(64, 64)
 size = Vector2(80, 80)
 
 [node name="Dummy" instance=ExtResource("1_4le0s")]
+scale = Vector2(0.5, 0.5)
 health = 20
 
 [node name="Sprite2D" type="Sprite2D" parent="." index="0"]
