@@ -55,7 +55,7 @@ target = NodePath("../Target")
 top_level = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Target"]
-modulate = Color(1, 0, 1, 1)
+modulate = Color(1, 0, 0, 0.27451)
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("8_e4oxj")
 

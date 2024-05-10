@@ -3,6 +3,8 @@ extends CharacterBody2D
 
 const FRICTION = 0.85
 
+signal dead
+
 @export var health := 3
 @export var mass := 1
 @export var hostile = false
@@ -28,6 +30,7 @@ func take_damage(dmg: int):
 	hostile = true
 	update_label()
 	if health <= 0:
+		emit_signal("dead")
 		queue_free()
 
 func take_knockback(kb: Vector2):
@@ -35,8 +38,3 @@ func take_knockback(kb: Vector2):
 
 func update_label():
 	health_label.text = str(health) + "HP"
-
-
-func _on_breadcrumb_component_breadcrumb_hit():
-	var state: State = state_machine.current_state
-	state.transition.emit("idle")

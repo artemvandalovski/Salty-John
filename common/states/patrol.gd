@@ -14,6 +14,7 @@ func _ready():
 	assert(context_steerer != null, "Please set the context_steerer node")
 	assert(player_tracker != null, "Please set the player_tracker node")
 
+
 func enter():
 	owner.speed = patroling_speed
 	set_patrol_point()
