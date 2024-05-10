@@ -12,6 +12,7 @@ var wait_time: float
 func _ready():
 	assert(player_tracker != null, "Please set the player_tracker node")
 
+
 func enter():
 	owner.direction = Vector2.ZERO
 	wait_time = randf_range(min_wait_time, max_wait_time)
