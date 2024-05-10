@@ -72,4 +72,5 @@ offset_bottom = -23.0
 grow_horizontal = 2
 grow_vertical = 0
 size_flags_horizontal = 4
+text = "HP"
 horizontal_alignment = 1
